@@ -1,4 +1,4 @@
 export class LoginCredentials {
-  email: string | undefined
+  email: string | undefined;
   password: string | undefined;
 }
