@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../service/login.service";
 import {LoginCredentials} from "../models/LoginCredentials";
 import {HttpErrorResponse} from "@angular/common/http";
+import {User} from "../models/User";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class RegisterComponent implements OnInit {
 
-  guest = new LoginCredentials();
+  loginCredentials = new LoginCredentials();
+  user = new User();
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -23,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   handleSave(loginCredentials: LoginCredentials) {
 
-    if (this.guest) {
+    if (this.loginCredentials) {
       this.loginService.post(loginCredentials).subscribe(
         (guest1: LoginCredentials) => {
           // this.router.navigate(['/loginCredentials-profile', guest1.id]);
